@@ -1,18 +1,32 @@
 <ion-header>
   <ion-navbar color="primary">
+
     <ion-title>
       Sonidos App
     </ion-title>
+
+    <ion-buttons end>
+      <button ion-button *ngIf="!ordenar" (click)="ordenar = true">
+        Organizar
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+        <button ion-button *ngIf="ordenar" (click)="ordenar = false">
+          Ok
+        </button>
+      </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-refresher (ionRefresh)="recargarAnimales($event)">
+  <ion-refresher [enabled]="!ordenar" (ionRefresh)="recargarAnimales($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
+  <ion-list [reorder]="ordenar" (ionItemReorder)="reordenarAnimales($event)">
 
     <ion-item-sliding *ngFor="let animal of animales; let i = index">
 
