@@ -12,7 +12,7 @@
 
     <ion-item-sliding *ngFor="let animal of animales; let i = index">
 
-      <ion-item (click)="reproducir( animal )">
+      <ion-item (click)="reproducir(animal)">
 
         <ion-avatar item-left>
           <img [src]="animal.imagen">
@@ -27,7 +27,7 @@
       
       <ion-item-options side="right">
 
-        <button ion-button color="danger" (click) = "borrarAnimal()">
+        <button ion-button color="danger" (click) = "borrarAnimal(i)">
           <ion-icon name="trash"></ion-icon>
           Borrar
         </button>
