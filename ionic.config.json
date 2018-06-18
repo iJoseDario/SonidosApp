@@ -1,6 +1,6 @@
 {
   "name": "SonidosApp",
-  "app_id": "",
+  "app_id": "3423e4de",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
