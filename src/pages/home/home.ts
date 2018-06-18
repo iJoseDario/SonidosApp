@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ANIMALES } from "../../data/data.animales";
 import { Animal } from "../../interfaces/animal.interface";
+import { Refresher } from "ionic-angular";
 
 @Component({
   selector: 'page-home',
@@ -50,6 +51,14 @@ export class HomePage {
 
   borrarAnimal(idx:number){
     this.animales.splice(idx, 1);
+  }
+
+  recargarAnimales(refresher:Refresher){
+
+    setTimeout( () => {
+      this.animales = ANIMALES.slice(0);
+      refresher.complete();
+    }, 2000)
   }
 
 }
